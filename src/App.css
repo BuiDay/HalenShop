@@ -283,10 +283,11 @@ p {
   justify-content: center;
   align-items: center;
   transition: all 0.3s;
+  filter: brightness(1);
 }
 
 .--btn:hover {
-  transform: translateY(-2px);
+  filter: brightness(0.9);
 }
 
 .--btn-lg {
@@ -429,5 +430,4 @@ a {
 
 a:hover {
   color: var(--color-dark);
-  font-size: 1.5rem;
 }
