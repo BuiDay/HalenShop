@@ -7,7 +7,8 @@ import styles from "./SliderStyle.module.scss"
 const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slideLength = sliderData.length;
-
+    let slideInterval;
+    
     const nextSlide = () => {
         setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
       };
@@ -17,8 +18,9 @@ const Slider = () => {
       };
 
     useEffect(()=>{
-
-    })
+        slideInterval = setInterval(nextSlide, 5000);
+        return () => clearInterval(slideInterval)
+    },[currentSlide, slideInterval])
 
   return (
     <div className={styles.slider}>

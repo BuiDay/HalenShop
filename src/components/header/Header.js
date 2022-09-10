@@ -8,12 +8,17 @@ import { auth } from "../../firebase/config";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector  } from "react-redux";
 import {
   SET_ACTIVE_USER,
   REMOVE_ACTIVE_USER,
-} from "../../redux/slice/authSilce"
+} from "../../redux/slice/authSilce";
 import ShowOnLogin, { ShowOnLogout } from "../hiddenLink/hiddendLink";
+import AdminOnlyLink from "../adminRouter/adminRouter";
+import {
+  CALCULATE_TOTAL_QUANTITY,
+  selectCartTotalQuantity,
+} from "../../redux/slice/cartSlice";
 
 const logo = (
   <div className={styles.logo}>
@@ -25,14 +30,6 @@ const logo = (
   </div>
 );
 
-const cart = (
-  <span className={styles.cart}>
-    <Link to="/cart">
-      <FaShoppingCart size={20} />
-      <p>0</p>
-    </Link>
-  </span>
-);
 
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
@@ -41,6 +38,7 @@ const Header = () => {
   const [displayName, setdisplayName] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const cartTotalQuantity = useSelector(selectCartTotalQuantity);
 
   const logoutUser = () => {
     signOut(auth)
@@ -60,6 +58,14 @@ const Header = () => {
   const hideMenu = () => {
     setShowMenu(false);
   };
+
+  const cart = (
+    <span className={styles.cart}>
+      <Link to="/cart">
+        <FaShoppingCart size={20} />
+        <p>{cartTotalQuantity}</p>
+      </Link>
+    </span>)
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -94,10 +100,14 @@ const Header = () => {
         <div className={styles.header}>
           {logo}
 
-          <nav className={showMenu ? `${styles["show-nav"]}` : `${styles["hide-nav"]}`
+          <nav
+            className={
+              showMenu ? `${styles["show-nav"]}` : `${styles["hide-nav"]}`
             }
           >
-            <div className={showMenu
+            <div
+              className={
+                showMenu
                   ? `${styles["nav-wrapper"]} ${styles["show-nav-wrapper"]}`
                   : `${styles["nav-wrapper"]}`
               }
@@ -108,11 +118,15 @@ const Header = () => {
                 {logo}
                 <FaTimes size={22} color="#fff" onClick={hideMenu} />
               </li>
-              <li>
-                
-                  
-                
-              </li>
+
+              <AdminOnlyLink>
+                <li>
+                  <Link to="/admin/home">
+                    <button className="--btn --btn-primary">Admin</button>
+                  </Link>
+                </li>
+              </AdminOnlyLink>
+
               <li>
                 <NavLink to="/" className={activeLink}>
                   Home
