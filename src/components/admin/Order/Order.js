@@ -2,8 +2,8 @@ import React from 'react';
 
 const Order = () => {
     return (
-        <div>
-            
+        <div style={{fontSize:"25px"}}>
+            Updating...
         </div>
     );
 };
