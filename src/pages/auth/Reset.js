@@ -21,7 +21,7 @@ const Reset = () => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
         setIsLoading(false);
-        toast.success("Check your email for a reset link");
+        toast.success("Kiểm tra lại email");
       })
       .catch((error) => {
         setIsLoading(false);
@@ -38,19 +38,19 @@ const Reset = () => {
         </div>
         <Card>
           <div className={styles.form}>
-            <h2>Reset Password</h2>
+            <h2>Đổi Password</h2>
             <form onSubmit={resetPassword}>
-              <input type="text" placeholder="Email" required  value={email}
+              <input type="text" placeholder="Nhập Email" required  value={email}
                 onChange={(e) => setEmail(e.target.value)}/>
               <button type="submit" className="--btn --btn-primary --btn-block">
-                Reset Password
+                Đổi Password
               </button>
               <div className={styles.links}>
                 <p>
-                  <Link to="/login">- Login</Link>
+                  <Link to="/login" style={{color:'var(--color-danger)'}}>Đăng nhập</Link>
                 </p>
                 <p>
-                  <Link to="/register">- Register</Link>
+                  <Link to="/register" style={{color:'var(--color-danger)'}}>Đăng kí</Link>
                 </p>
               </div>
             </form>

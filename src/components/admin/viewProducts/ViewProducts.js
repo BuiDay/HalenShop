@@ -126,9 +126,9 @@ const ViewProducts = () => {
                     </td>
                     <td>{name}</td>
                     <td>{category}</td>
-                    <td>{`$${price}`}</td>
+                    <td>{`${new Intl.NumberFormat().format(`${product.price}`) } đồng`}</td>
                     <td className={styles.icons}>
-                      <Link to={`/admin/add-product/${id}`}>
+                      <Link to={`/admin/add-products/${id}`}>
                         <FaEdit size={20} color="green" />
                       </Link>
                       &nbsp;

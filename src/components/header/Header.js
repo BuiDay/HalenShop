@@ -8,7 +8,7 @@ import { auth } from "../../firebase/config";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch,useSelector  } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   SET_ACTIVE_USER,
   REMOVE_ACTIVE_USER,
@@ -29,7 +29,6 @@ const logo = (
     </Link>
   </div>
 );
-
 
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
@@ -65,7 +64,8 @@ const Header = () => {
         <FaShoppingCart size={20} />
         <p>{cartTotalQuantity}</p>
       </Link>
-    </span>)
+    </span>
+  );
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -114,51 +114,48 @@ const Header = () => {
               onClick={hideMenu}
             ></div>
             <ul onClick={hideMenu}>
-              <li className={styles["logo-mobile"]}>
-                {logo}
-                <FaTimes size={22} color="#fff" onClick={hideMenu} />
-              </li>
+              <NavLink to="/" className={activeLink}>
+                <li className={styles["logo-mobile"]}>
+                  {logo}
+                </li>
+              </NavLink>
 
               <AdminOnlyLink>
                 <li>
-                  <Link to="/admin/home">
-                    <button className="--btn --btn-primary">Admin</button>
-                  </Link>
+                  <NavLink to="/admin/home" className={activeLink}>
+                    Admin
+                  </NavLink>
                 </li>
               </AdminOnlyLink>
 
-              <li>
+              <li >
                 <NavLink to="/" className={activeLink}>
-                  Home
+                  Trang chủ
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/contact" className={activeLink}>
-                  Contact Us
-                </NavLink>
-              </li>
+
             </ul>
             <div className={styles["header-right"]} onClick={hideMenu}>
               <span className={styles.links}>
                 <ShowOnLogout>
                   <NavLink to="/login" className={activeLink}>
-                    Login
+                    Đăng nhập
                   </NavLink>
                 </ShowOnLogout>
                 <ShowOnLogin>
                   <a href="#home" style={{ color: "#ff7722" }}>
                     <FaUserCircle size={16} />
-                    Hi, {displayName}
+                    Chào, {displayName}
                   </a>
                 </ShowOnLogin>
                 <ShowOnLogin>
                   <NavLink to="/order-history" className={activeLink}>
-                    My Orders
+                    Lịch sử mua hàng
                   </NavLink>
                 </ShowOnLogin>
                 <ShowOnLogin>
                   <NavLink to="/" onClick={logoutUser}>
-                    Logout
+                    Đăng xuất
                   </NavLink>
                 </ShowOnLogin>
               </span>
@@ -167,7 +164,7 @@ const Header = () => {
           </nav>
 
           <div className={styles["menu-icon"]}>
-            {cart}
+            
             <HiOutlineMenuAlt3 size={28} onClick={toggleMenu} />
           </div>
         </div>

@@ -1,23 +1,20 @@
+import img from "../../assets/happy-father.jpg"
 export const sliderData = [
     {
-      image: "https://i.ibb.co/CBGRLhG/bg-4.jpg",
-      heading: "Shoes Villa",
-      desc: "Up to 30% off on all onsale proucts.",
+      image: img,
+     
     },
     {
-      image: "https://i.ibb.co/cDLBk5h/bg-1.jpg",
-      heading: "Women Fashion",
-      desc: "Up to 30% off on all onsale proucts.",
+      image: "https://fptshop.com.vn/Uploads/Originals/2019/12/20/637124481852258045_NF,NE,RC@2x.png",
+     
     },
     {
-      image: "https://i.ibb.co/HXjD3V0/bg-2.jpg",
-      heading: "Men Fashion",
-      desc: "Up to 30% off on all onsale proucts.",
+      image: "https://phucthoapple.com/wp-content/uploads/2022/07/tra-gop-0_-lai-suot-trong-3-thang-mobi-banner-viettablet.jpg",
+      
     },
     {
-      image: "https://i.ibb.co/H2FRmtV/bg-3.jpg",
-      heading: "Awesome Gadgets",
-      desc: "Up to 30% off on all onsale proucts.",
+      image: "https://cdn.tgdd.vn/Files/2022/07/18/1448642/co-nen-mua-ipad-pro--6.jpg",
+     
     },
   ];
   

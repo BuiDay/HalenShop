@@ -1,13 +1,39 @@
 .footer {
+    width:100% ;
     background-color: var(--dark-blue);
     color: #fff;
     font-size: 1.6rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 8rem;
-    p {
-      color: #fff;
+    padding: 10px 0;
+    .footerContainer{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    
+    li{
+      list-style: none;
+      padding: 7px;
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+
+      svg{
+        font-size: 25 px;
+      }
+
+      &:hover{
+        color: var(--color-danger);
+        cursor: pointer;
+        transition: all 0.4s ease;
+      }
+    }
+    span{
+      margin-left: 10px;
     }
   }
+  .title{
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
   

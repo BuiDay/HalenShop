@@ -48,9 +48,9 @@ const ProductDetails = () => {
   return (
     <section>
       <div className={`container ${styles.product}`}>
-        <h2>Product Details</h2>
+        <h2>Chi tiết sản phẩm</h2>
         <div>
-          <Link to="/#products">&larr; Back To Products</Link>
+          <Link to="/#products">&larr; Quay lại</Link>
         </div>
         {product === null ? (
           <img src={spinnerImg} alt="Loading" style={{ width: "50px" }} />
@@ -62,13 +62,13 @@ const ProductDetails = () => {
               </div>
               <div className={styles.content}>
                 <h3>{product.name}</h3>
-                <p className={styles.price}>{`$${product.price}`}</p>
-                <p>{product.desc}</p>
+                <p className={styles.price}>{`${new Intl.NumberFormat().format(`${product.price}`) } đồng`}</p>
+                <p className={styles.desc}>{product.desc}</p>
                 <p>
-                  <b>SKU</b> {product.id}
+                  <b>Mã:</b> {product.id}
                 </p>
                 <p>
-                  <b>Brand</b> {product.brand}
+                  <b>Nhãn hiệu:</b> {product.brand}
                 </p>
 
                 <div className={styles.count}>
@@ -96,17 +96,17 @@ const ProductDetails = () => {
                   className="--btn --btn-danger"
                   onClick={() => addToCart(product)}
                 >
-                  ADD TO CART
+                  Thêm vào giỏ hàng
                 </button>
               </div>
             </div>
           </>
         )}
         <Card cardClass={styles.card}>
-          <h3>Product Reviews</h3>
+          <h3>Đánh giá:</h3>
           <div>
             {filteredReviews.length === 0 ? (
-              <p>There are no reviews for this product yet.</p>
+              <p>Sản phẩm chưa có đánh giá.</p>
             ) : (
               <>
                 {filteredReviews.map((item, index) => {

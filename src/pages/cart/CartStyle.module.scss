@@ -2,6 +2,10 @@
     padding: 5px;
     width: 100%;
     overflow-x: auto;
+
+    .empty{
+      height: 50vh;
+    }
   
     table {
       border-collapse: collapse;
@@ -19,7 +23,7 @@
   
       th,
       td {
-        vertical-align: top;
+    
         text-align: left;
         padding: 8px;
         &.icons {
@@ -33,10 +37,7 @@
       tr {
         border-bottom: 1px solid #ccc;
       }
-  
-      tr:nth-child(even) {
-        background-color: #eee;
-      }
+
     }
     .summary {
       margin-top: 2rem;
@@ -50,6 +51,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
+          margin-top: 20px;
           h3 {
             color: var(--color-danger);
           }

@@ -17,9 +17,9 @@ import { selectProducts } from "../../../redux/slice/productSlice";
 
 const categories = [
   { id: 1, name: "Laptop" },
-  { id: 2, name: "Electronics" },
-  { id: 3, name: "Fashion" },
-  { id: 4, name: "Phone" },
+  { id: 2, name: "Máy tính bảng" },
+  { id: 3, name: "Đồng hồ" },
+  { id: 4, name: "Điện thoại" },
 ];
 
 const initialState = {
@@ -147,7 +147,7 @@ const AddProduct = () => {
         <h2>{detectForm(id, "Add New Product", "Edit Product")}</h2>
         <Card cardClass={styles.card}>
           <form onSubmit={detectForm(id, addProduct, editProduct)}>
-            <label>Product name:</label>
+            <label>Tên sản phẩm:</label>
             <input
               type="text"
               placeholder="Product name"
@@ -157,20 +157,8 @@ const AddProduct = () => {
               onChange={(e) => handleInputChange(e)}
             />
 
-            <label>Product image:</label>
+            <label>Hình ảnh sản phẩm:</label>
             <Card cardClass={styles.group}>
-              {uploadProgress === 0 ? null : (
-                <div className={styles.progress}>
-                  <div
-                    className={styles["progress-bar"]}
-                    style={{ width: `${uploadProgress}%` }}
-                  >
-                    {uploadProgress < 100
-                      ? `Uploading ${uploadProgress}`
-                      : `Upload Complete ${uploadProgress}%`}
-                  </div>
-                </div>
-              )}
 
               <input
                 type="file"
@@ -192,7 +180,7 @@ const AddProduct = () => {
               )}
             </Card>
 
-            <label>Product price:</label>
+            <label>Giá sản phẩm:</label>
             <input
               type="number"
               placeholder="Product price"
@@ -201,7 +189,7 @@ const AddProduct = () => {
               value={product.price}
               onChange={(e) => handleInputChange(e)}
             />
-            <label>Product Category:</label>
+            <label>Phân loại sản phẩm:</label>
             <select
               required
               name="category"
@@ -209,7 +197,7 @@ const AddProduct = () => {
               onChange={(e) => handleInputChange(e)}
             >
               <option value="" disabled>
-                -- choose product category --
+                -- chọn loại hàng sẩn phẩm --
               </option>
               {categories.map((cat) => {
                 return (

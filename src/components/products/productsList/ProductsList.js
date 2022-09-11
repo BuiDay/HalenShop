@@ -20,7 +20,7 @@ const ProductList = ({ products }) => {
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(9);
+  const [productsPerPage] = useState(8);
   // Get Current Products
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -52,7 +52,7 @@ const ProductList = ({ products }) => {
           <FaListAlt size={24} color="#0066d4" onClick={() => setGrid(false)} />
 
           <p>
-            <b>{filteredProducts.length}</b> Products found.
+            <b>{filteredProducts.length}</b> Sản phẩm
           </p>
         </div>
         {/* Search Icon */}
@@ -61,11 +61,11 @@ const ProductList = ({ products }) => {
         </div>
         {/* Sort Products */}
         <div className={styles.sort}>
-          <label>Sort by:</label>
+          <label>Sắp xếp:</label>
           <select value={sort} onChange={(e) => setSort(e.target.value)}>
-            <option value="latest">Latest</option>
-            <option value="lowest-price">Lowest Price</option>
-            <option value="highest-price">Highest Price</option>
+            <option value="latest">Mới nhất</option>
+            <option value="lowest-price">Từ thấp đến cao</option>
+            <option value="highest-price">Từ cao xuống thấp</option>
             <option value="a-z">A - Z</option>
             <option value="z-a">Z - A</option>
           </select>
@@ -74,7 +74,7 @@ const ProductList = ({ products }) => {
 
       <div className={grid ? `${styles.grid}` : `${styles.list}`}>
         {products.lenght === 0 ? (
-          <p>No product found.</p>
+          <p>Không có sản phẩm.</p>
         ) : (
           <>
             {currentProducts.map((product) => {

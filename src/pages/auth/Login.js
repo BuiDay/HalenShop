@@ -26,7 +26,7 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         setIsLoading(false);
-        toast.success("Login Successful...");
+        toast.success("Đăng nhập thành công");
         navigate("/");
     
       })
@@ -47,26 +47,26 @@ const Login = () => {
 
         <Card>
           <div className={styles.form}>
-            <h2>Login</h2>
+            <h2>Đăng nhập</h2>
             <form onSubmit={loginUser}>
-              <input type="text" placeholder="Email" required value={email}
+              <input type="text" placeholder="Nhập Email" required value={email}
                 onChange={(e) => setEmail(e.target.value)}/>
-              <input type="password" placeholder="Password" required  value={password}
+              <input type="password" placeholder="Nhập mật khẩu" required  value={password}
                 onChange={(e) => setPassword(e.target.value)}/>
               <button type="submit" className="--btn --btn-primary --btn-block">
-                Login
+                Đăng nhập
               </button>
               <div className={styles.links}>
-                <Link to="/reset">Reset Password</Link>
+                <Link to="/reset">Quên mật khẩu</Link>
               </div>
-              <p>-- or --</p>
+              <p>-------</p>
             </form>
             <button className="--btn --btn-danger --btn-block">
-              <FaGoogle color="#fff" /> Login With Google
+              <FaGoogle color="#fff" /> Đăng nhập với Google
             </button>
             <span className={styles.register}>
-              <p>Don't have an account?</p>
-              <Link to="/register">Register</Link>
+              <p>Bạn chưa có tài khoản?</p>
+              <Link to="/register" style={{color:'var(--color-danger)'}}>Đăng kí</Link>
             </span>
           </div>
         </Card>

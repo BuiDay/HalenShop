@@ -33,16 +33,11 @@ const Slider = () => {
           <div key={index} className={index === currentSlide ? `${styles.slide} ${styles.current}` : `${styles.slide}`} >
               <>
                 <img src={image} alt="slide" />
-                {index === currentSlide && (
-                <div className={ styles.content}>
-                  <h2>{heading}</h2>
-                  <p>{desc}</p>
-                  <hr />
-                  <a href="#product" className="--btn --btn-primary">
-                    Shop Now
-                  </a>
-                </div>)}
+    
               </>
+              <a href="#product" className="--btn --btn-danger">
+                    Mua ngay
+                  </a>
           </div>
         );
       })}

@@ -53,7 +53,7 @@ const filterSlice = createSlice({
     FILTER_BY_CATEGORY(state, action) {
       const { products, category } = action.payload;
       let tempProducts = [];
-      if (category === "All") {
+      if (category === "Tất cả") {
         tempProducts = products;
       } else {
         tempProducts = products.filter(
@@ -65,7 +65,7 @@ const filterSlice = createSlice({
     FILTER_BY_BRAND(state, action) {
       const { products, brand } = action.payload;
       let tempProducts = [];
-      if (brand === "All") {
+      if (brand === "Tất cả") {
         tempProducts = products;
       } else {
         tempProducts = products.filter((product) => product.brand === brand);

@@ -32,8 +32,8 @@ const ProductItem = ({ product, grid, id, name, price, desc, imageURL }) => {
       </Link>
       <div className={styles.content}>
         <div className={styles.details}>
-          <p>{`$${price}`}</p>
           <h4>{shortenText(name, 18)}</h4>
+          <p>{`${new Intl.NumberFormat().format(`${product.price}`) } đồng`}</p>
         </div>
         {!grid && <p className={styles.desc}>{shortenText(desc, 200)}</p>}
 
@@ -41,7 +41,7 @@ const ProductItem = ({ product, grid, id, name, price, desc, imageURL }) => {
           className="--btn --btn-danger"
           onClick={() => addToCart(product)}
         >
-          Add To Cart
+          Thêm vào giỏ hàng
         </button>
       </div>
     </Card>

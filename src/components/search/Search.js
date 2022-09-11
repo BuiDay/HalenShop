@@ -9,7 +9,7 @@ const Search = ({ value, onChange }) => {
 
       <input
         type="text"
-        placeholder="Search by name"
+        placeholder="Tìm kiếm"
         value={value}
         onChange={onChange}
       />

@@ -79,8 +79,8 @@ const Pagination = ({
       </li>
 
       <p>
-        <b className={styles.page}>{`page ${currentPage}`}</b>
-        <span>{` of `}</span>
+        <b className={styles.page}>{`trang ${currentPage}`}</b>
+        <span>{` trên `}</span>
         <b>{`${Math.ceil(totalPages)}`}</b>
       </p>
     </ul>

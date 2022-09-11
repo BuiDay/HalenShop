@@ -22,7 +22,7 @@ const Register = () => {
   const registerUser = (e) =>{
       e.preventDefault();
       if(password !== cPassword){
-        toast.error("Passwords do not match");
+        toast.error("Passwords không trùng khớp !!!!");
       }
       setIsLoading(true);
 
@@ -31,7 +31,7 @@ const Register = () => {
         const user = userCredential.user;
         console.log(user);
         setIsLoading(false);
-        toast.success("Registration Successful...");
+        toast.success("Đăng kí thành công !!!!");
         navigate("/login");
       })
       .catch((error) => {
@@ -47,22 +47,22 @@ const Register = () => {
       <section className={`container ${styles.auth}`}>
         <Card>
           <div className={styles.form}>
-            <h2>Register</h2>
+            <h2>Đăng kí</h2>
             <form onSubmit={registerUser}>
-              <input type="text" placeholder="Email" required  value={email}
+              <input type="text" placeholder="Nhập Email" required  value={email}
                 onChange={(e) => setEmail(e.target.value) } />
-              <input type="password" placeholder="Password" required value={password}
+              <input type="password" placeholder="Nhập mật khẩu" required value={password}
               onChange={(e) => setPassword(e.target.value) }/>
-              <input type="password" placeholder="Confirm Password" required value={cPassword}
+              <input type="password" placeholder="Xác nhận lại mật khẩu" required value={cPassword}
                 onChange={(e) => setCPassword(e.target.value)} />
               <button type="submit" className="--btn --btn-primary --btn-block">
-                Register
+                Đăng kí
               </button>
             </form>
 
             <span className={styles.register}>
-              <p>Already an account?</p>
-              <Link to="/login">Login</Link>
+              <p>Bạn đã có tài khoản?</p>
+              <Link to="/login" style={{color:'var(--color-danger)'}}> Đăng nhập</Link>
             </span>
           </div>
         </Card>

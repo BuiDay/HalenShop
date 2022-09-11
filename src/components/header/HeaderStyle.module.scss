@@ -153,19 +153,8 @@
   
         .header-right {
           display: block;
-          .cart {
-            // display: block;
-            // padding: 5px 0;
-            border-bottom: 1px solid #333;
-            // a {
-            //   position: relative;
-            //   p {
-            //     position: absolute;
-            //     top: -1rem;
-            //     left: 5rem;
-            //     font-weight: 500;
-            //   }
-            // }
+          .cart {   
+            border-bottom: 1px solid #333;      
           }
   
           .links {
@@ -192,7 +181,7 @@
           p {
             position: absolute;
             top: -1rem;
-            left: 5rem;
+            left: 2rem;
             font-weight: 500;
             color: #fff;
           }

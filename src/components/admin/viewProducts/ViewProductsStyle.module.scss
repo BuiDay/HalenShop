@@ -24,7 +24,7 @@
 
     th,
     td {
-      vertical-align: top;
+      
       text-align: left;
       padding: 8px;
       &.icons {
@@ -37,10 +37,6 @@
 
     tr {
       border-bottom: 1px solid #ccc;
-    }
-
-    tr:nth-child(even) {
-      background-color: #eee;
     }
   }
 }

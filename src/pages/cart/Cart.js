@@ -63,13 +63,13 @@ const Cart = () => {
   return (
     <section>
       <div className={`container ${styles.table}`}>
-        <h2>Shopping Cart</h2>
+        <h2>Giỏ hàng</h2>
         {cartItems.length === 0 ? (
           <>
-            <p>Your cart is currently empty.</p>
+            <p>Giỏ hàng của bạn trống.</p>
             <br />
-            <div>
-              <Link to="/#products">&larr; Continue shopping</Link>
+            <div className={styles.empty}>
+              <Link to="/#products">&larr; Tiếp tục mua hàng</Link>
             </div>
           </>
         ) : (
@@ -77,12 +77,12 @@ const Cart = () => {
             <table>
               <thead>
                 <tr>
-                  <th>s/n</th>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
-                  <th>Action</th>
+                  <th>STT</th>
+                  <th>Sản phẩm</th>
+                  <th>Giá</th>
+                  <th>Số lượng</th>
+                  <th>Tổng cộng</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -101,7 +101,7 @@ const Cart = () => {
                           style={{ width: "100px" }}
                         />
                       </td>
-                      <td>{price}</td>
+                      <td>{`${new Intl.NumberFormat().format(`${price}`) } đồng`}</td>
                       <td>
                         <div className={styles.count}>
                           <button
@@ -121,7 +121,7 @@ const Cart = () => {
                           </button>
                         </div>
                       </td>
-                      <td>{(price * cartQuantity).toFixed(2)}</td>
+                      <td>{`${new Intl.NumberFormat().format(`${price * cartQuantity }`) } đồng`}</td>
                       <td className={styles.icons}>
                         <FaTrashAlt
                           size={19}
@@ -136,27 +136,26 @@ const Cart = () => {
             </table>
             <div className={styles.summary}>
               <button className="--btn --btn-danger" onClick={clearCart}>
-                Clear Cart
+                Xoá toàn bộ giỏ hàng
               </button>
               <div className={styles.checkout}>
                 <div>
-                  <Link to="/#products">&larr; Continue shopping</Link>
+                  <Link to="/#products">&larr; Tiếp tục shopping</Link>
                 </div>
                 <br />
                 <Card cardClass={styles.card}>
                   <p>
-                    <b> {`Cart item(s): ${cartTotalQuantity}`}</b>
+                    <b> {`Số lượng: ${cartTotalQuantity}`}</b>
                   </p>
                   <div className={styles.text}>
-                    <h4>Subtotal:</h4>
-                    <h3>{`$${cartTotalAmount.toFixed(2)}`}</h3>
+                    <h4>Tổng tiền:</h4>
+                    <h3>{`${new Intl.NumberFormat().format(`${cartTotalAmount}`) } đồng`}</h3>
                   </div>
-                  <p>Tax an shipping calculated at checkout</p>
                   <button
                     className="--btn --btn-primary --btn-block"
                     onClick={checkout}
                   >
-                    Checkout
+                    Thanh toán
                   </button>
                 </Card>
               </div>

@@ -14,8 +14,8 @@ import {
 
 
 const ProductsFilter = () => {
-    const [category, setCategory] = useState("All");
-  const [brand, setBrand] = useState("All");
+    const [category, setCategory] = useState("Tất cả");
+  const [brand, setBrand] = useState("Tất cả");
   const [price, setPrice] = useState(3000);
   const products = useSelector(selectProducts);
   const minPrice = useSelector(selectMinPrice);
@@ -24,11 +24,11 @@ const ProductsFilter = () => {
   const dispatch = useDispatch();
 
   const allCategories = [
-    "All",
+    "Tất cả",
     ...new Set(products.map((product) => product.category)),
   ];
   const allBrands = [
-    "All",
+    "Tất cả",
     ...new Set(products.map((product) => product.brand)),
   ];
   // console.log(allBrands);
@@ -47,14 +47,14 @@ const ProductsFilter = () => {
   };
 
   const clearFilters = () => {
-    setCategory("All");
-    setBrand("All");
+    setCategory("Tất cả");
+    setBrand("Tất cả");
     setPrice(maxPrice);
   };
 
   return (
     <div className={styles.filter}>
-      <h4>Categories</h4>
+      <h4>Phân loại</h4>
       <div className={styles.category}>
         {allCategories.map((cat, index) => {
           return (
@@ -69,7 +69,7 @@ const ProductsFilter = () => {
           );
         })}
       </div>
-      <h4>Brand</h4>
+      <h4>Nhãn hiệu</h4>
       <div className={styles.brand}>
         <select value={brand} onChange={(e) => setBrand(e.target.value)}>
           {allBrands.map((brand, index) => {
@@ -80,8 +80,8 @@ const ProductsFilter = () => {
             );
           })}
         </select>
-        <h4>Price</h4>
-        <p>{`$${price}`}</p>
+        <h4>Giá</h4>
+        <p>{`${new Intl.NumberFormat().format(`${price}`)} đồng`}</p>
         <div className={styles.price}>
           <input
             type="range"
@@ -89,11 +89,12 @@ const ProductsFilter = () => {
             onChange={(e) => setPrice(e.target.value)}
             min={minPrice}
             max={maxPrice}
+            step="500000"
           />
         </div>
         <br />
         <button className="--btn --btn-danger" onClick={clearFilters}>
-          Clear Filter
+          Xoá lọc
         </button>
       </div>
     </div>
